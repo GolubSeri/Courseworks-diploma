@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRouter } from './router/AppRouter';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import './assets/styles/nullstyles.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const theme = createTheme({
+        typography: {
+            allVariants: {
+                fontFamily: 'Inter',
+            },
+        },
+    });
+
+    const queryClient = new QueryClient();
+
+    return (
+        <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+                <ThemeProvider theme={theme}>
+                    <AppRouter></AppRouter>
+                </ThemeProvider>
+            </BrowserRouter>
+        </QueryClientProvider>
+    );
 }
 
 export default App;
