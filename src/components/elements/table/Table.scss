@@ -1,0 +1,156 @@
+@import "../../../assets/styles/mixins.scss";
+
+.table__body {
+	border-radius: 2px;
+	border: 1px solid #e2e8f0;
+	box-shadow: 0px 10px 15px -3px rgba(15, 23, 42, 0.08);
+
+	background-color: #fff;
+	padding-bottom: 14px;
+}
+
+.table__filters {
+	@include flexbox();
+	justify-content: space-between;
+
+	padding-top: 14px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-bottom: 24px;
+
+	background-color: #fff;
+
+	input {
+		transition-property: opacity;
+		transition-duration: 0.1s;
+
+		&:focus {
+			&::placeholder {
+				opacity: 0;
+			}
+		}
+
+		&:placeholder-shown {
+			text-overflow: ellipsis;
+		}
+	}
+
+	input,
+	.MuiBox-root.css-1ywof4l .MuiChip-root.MuiChip-filled {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 18px;
+		color: #1f2937;
+	}
+
+	// Выбранный элемент (кружочек) в селекте
+	.MuiBox-root.css-1ywof4l .MuiChip-root.MuiChip-filled {
+		background-color: rgba(219, 237, 255, 0.7);
+		color: #64748b;
+		padding: 4.5px 12px;
+		height: auto;
+
+		span {
+			padding: 0;
+		}
+	}
+
+	input::placeholder,
+	.css-1tzeee1 {
+		// font-family: Onest;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 18px;
+		color: rgba(51, 51, 51, 1);
+		opacity: 0.4;
+	}
+}
+
+.filter__wrapper {
+	max-width: 260px;
+	width: 100%;
+	margin-right: 8px;
+
+	.MuiInputBase-root.MuiOutlinedInput-root {
+		height: 100%;
+		span {
+			cursor: pointer;
+		}
+		fieldset {
+			border-radius: 5px;
+			border: 1px solid #e2e8f0;
+
+			transition-property: border, box-shadow;
+			transition-duration: 0.1s;
+		}
+
+		&:hover fieldset {
+			border: 1px solid rgba(100, 116, 139, 0.6);
+		}
+
+		&.Mui-focused fieldset {
+			border: 1px solid #e2e8f0;
+		}
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&.filter_type_text {
+		.MuiInputBase-root.MuiOutlinedInput-root {
+			&.Mui-focused fieldset {
+				border: 1px solid rgba(100, 116, 139, 0.6);
+			}
+		}
+	}
+
+	&.filter_type_multi-select {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+
+			top: 48%;
+			transform: translateY(-50%) rotate(45deg);
+			right: 20px;
+
+			width: 8px;
+			height: 8px;
+
+			border-bottom: 1px solid;
+			border-right: 1px solid;
+			border-color: #6e6e6e;
+
+			transition-property: transform;
+			transition-duration: 0.3s;
+		}
+
+		// Стрелочка базовая
+		.MuiSelect-iconOutlined {
+			display: none;
+		}
+
+		// Крестик
+		.MuiInputAdornment-root {
+			margin-right: 25px;
+			cursor: pointer;
+
+			& > span {
+				&::after {
+					content: "";
+					position: absolute;
+					width: 1px;
+					height: 12px;
+					background-color: #dadada;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+}
+
+.MuiBox-root.css-1vrmn3f {
+	top: 3px;
+}

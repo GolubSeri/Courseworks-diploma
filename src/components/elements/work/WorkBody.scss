@@ -1,0 +1,57 @@
+@import "../../../assets/styles/mixins.scss";
+
+.work__body {
+	padding-bottom: 30px;
+}
+
+.work__info {
+	@include flexbox();
+	flex-wrap: wrap;
+}
+
+.work_info__item {
+	flex: 0 1 25%;
+	margin-bottom: 30px;
+}
+
+.work_info__title {
+	display: block;
+
+	color: #1e293b;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.work_info__desc {
+	margin-top: 10px;
+
+	display: block;
+
+	color: #94a3b8;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.work__pdf {
+	margin-top: 30px;
+	padding-bottom: 5px;
+
+	height: 900px;
+
+	span {
+		margin-bottom: 15px;
+	}
+
+	.rpv-default-layout__sidebar-tabs {
+		display: none;
+	}
+
+	.rpv-toolbar__item span {
+		margin-bottom: 0;
+	}
+
+	.rpv-open__input-wrapper {
+		display: none;
+	}
+}

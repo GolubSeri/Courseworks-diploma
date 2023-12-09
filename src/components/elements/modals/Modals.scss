@@ -1,0 +1,142 @@
+@import "../../../assets/styles/mixins.scss";
+
+.modal {
+	height: 100vh;
+	width: 100vw;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	z-index: 1000000;
+
+	@include flexbox();
+	justify-content: center;
+	align-items: center;
+
+	background-color: rgba(0, 0, 0, 0.6);
+
+	transition-duration: 0.4s;
+	transition-property: opacity, visibility;
+
+	visibility: hidden;
+	opacity: 0;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+
+		.modal__content {
+			opacity: 1;
+			transform: translate(0px, 0%);
+		}
+	}
+}
+
+.modal__content {
+	padding: 20px;
+
+	max-width: 780px;
+	width: 100%;
+
+	transition-duration: 0.4s;
+	transition-property: opacity, transform;
+
+	opacity: 0;
+	transform: translate(0px, -50%);
+
+	background-color: #fff;
+	border-radius: 10px;
+
+	&.access,
+	&.error {
+		.feedback__form-status {
+			display: block;
+		}
+
+		.feedback__form {
+			display: none;
+		}
+	}
+}
+
+.feedback__body {
+	@include flexbox();
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.feedback__title {
+	margin-bottom: 30px;
+
+	color: #1f2937;
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.feedback__upload-wrapper {
+	margin-top: 10px;
+
+	@include flexbox();
+	align-items: center;
+}
+
+.feedback__upload-text {
+	display: block;
+	padding: 10px;
+
+	cursor: pointer;
+
+	border-radius: 5px;
+	background-color: #7b8fac;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.feedback__upload {
+	display: none;
+}
+.feedback__filename {
+	margin-left: 15px;
+
+	color: #1f2937;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.feedback__button {
+	width: 100%;
+	margin-top: 15px;
+	padding: 10px;
+
+	border-radius: 5px;
+	background-color: #2b3c58;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 700;
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: #5c5e61;
+	}
+}
+
+.feedback__form-status {
+	display: none;
+
+	padding: 40px 0px 40px 0px;
+
+	text-align: center;
+
+	color: #1f2937;
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.feedback__form-loader {
+	padding: 40px 0px 40px 0px;
+	@include flexbox();
+	align-items: center;
+	justify-content: center;
+}
