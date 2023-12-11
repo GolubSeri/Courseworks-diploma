@@ -21,6 +21,7 @@ export const Table = ({ endpoint }) => {
             {
                 header: 'Тема',
                 accessorKey: 'topic',
+                filterFn: 'contains',
             },
             {
                 header: 'Оценка',
@@ -39,10 +40,12 @@ export const Table = ({ endpoint }) => {
             {
                 header: 'Студент',
                 accessorKey: 'student',
+                filterFn: 'contains',
             },
             {
                 header: 'Науч. рук.',
                 accessorKey: 'teacher',
+                filterFn: 'contains',
             },
             {
                 header: 'Дата',
