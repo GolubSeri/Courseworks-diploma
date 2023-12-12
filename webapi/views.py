@@ -15,7 +15,7 @@ class CourseWorkView(APIView):
 
             serialized = CourseWorkSerializer(object, context={'request': request})
         else:
-            objects = CourseWork.objects.filter(shown=True)
+            objects = CourseWork.objects.filter(shown=True).order_by('-added')
             serialized = CourseWorksSerializer(objects, many=True)
         return Response(serialized.data, status=200)
 
@@ -27,7 +27,7 @@ class DiplomaWorkView(APIView):
             object = get_object_or_404(Diploma, pk=pk)
             serialized = DiplomaSerializer(object, context={'request': request})
         else:
-            objects = Diploma.objects.filter(shown=True)
+            objects = Diploma.objects.filter(shown=True).order_by('-added')
             serialized = DiplomasSerializer(objects, many=True, context={'request': request})
 
         return Response(serialized.data, status=200)

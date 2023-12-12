@@ -15,7 +15,6 @@ services:
         condition: service_healthy
     volumes:
       - media_volume:/app/media
-      - static_volume:/app/static
 
   db:
     image: postgres:15.3
@@ -39,19 +38,28 @@ services:
       - 8080:8080
 
   front:
-    stdin_open: true
-    environment:
-      - REACT_APP_HOST_IP=http://localhost:3000
     build:
       context: .
       dockerfile: front.Dockerfile
+    environment:
+      - REACT_APP_HOST_IP=http://localhost:8000
     ports:
-      - '3000:3000'
+      - '3000:80'
+    depends_on:
+      - django
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
     volumes:
-      - /app/node_modules
-      - .:/app
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - django
+      - front
+
 
 volumes:
   postgres_data_volume:
   media_volume:
-  static_volume:

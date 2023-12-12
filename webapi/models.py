@@ -15,6 +15,7 @@ class ScientificWork(models.Model):
     teacher = models.CharField(max_length=255, default="", blank=True, null=True, verbose_name='Научный руководитель')
     desc = models.TextField(default="", blank=True, null=True, verbose_name='Краткое описание')
     shown = models.BooleanField(default=True, verbose_name='Показать в общей таблице?')
+    added = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name="Дата и время загрузки работы в сервис")
 
     def __str__(self):
         return self.topic
