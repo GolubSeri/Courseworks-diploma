@@ -1,0 +1,36 @@
+.sidebar__title {
+	margin-top: 24px;
+	margin-left: 16px;
+	margin-bottom: 16px;
+
+	color: #e2e8f0;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 0.25px;
+	line-height: 23px;
+}
+
+.sidebar__section-title {
+	display: block;
+
+	margin-left: 16px;
+	margin-bottom: 12px;
+	margin-top: 24px;
+
+	color: #64748b;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.sidebar__item {
+	&._active,
+	&._active:hover {
+		background-color: #0f172a;
+	}
+}
+
+.sidebar_item__image {
+	height: 24px;
+	width: 24px;
+	margin-right: 12px;
+}

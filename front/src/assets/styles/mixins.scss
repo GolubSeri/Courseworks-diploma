@@ -1,0 +1,17 @@
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 0;
+}
+
+@mixin adaptiv-value($property, $startSize, $minSize, $maxWidthContainer, $size) {
+	$addSize: $startSize - $minSize;
+	#{$property}: $startSize + px;
+
+	@media (max-width: #{$maxWidthContainer + px}) {
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$size + px}) / #{$maxWidthContainer - $size}));
+	}
+}

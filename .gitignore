@@ -1,0 +1,6 @@
+.venv
+*.sqlite3
+**/__pycache__/
+**.pyc
+*/__pycache__/
+webapi/migrations/__pycache__/
