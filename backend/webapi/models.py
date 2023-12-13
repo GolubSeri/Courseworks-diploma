@@ -8,9 +8,17 @@ class ScientificWork(models.Model):
     class Meta:
         abstract = True
 
+    SCORE_CHOICES = (
+        ("Хорошо","Хорошо"),
+        ("Отлично","Отлично"),
+        ("Удовлeтворительно","Удовлeтворительно"),
+        ("Неудовлeтворительно","Неудовлeтворительно")
+    )
+
+
     topic = models.CharField(max_length=255, default="", blank=True, null=True, verbose_name='Тема работы')
     student = models.CharField(max_length=255, default="", blank=True, null=True, verbose_name='Автор работы')
-    score = models.CharField(max_length=255, default="", blank=True, null=True, verbose_name='Оценка')
+    score = models.CharField(max_length=255, choices=SCORE_CHOICES, default="", blank=True, null=True, verbose_name='Оценка')
     date = models.DateField(blank=True, null=True, verbose_name='Дата защиты')
     teacher = models.CharField(max_length=255, default="", blank=True, null=True, verbose_name='Научный руководитель')
     desc = models.TextField(default="", blank=True, null=True, verbose_name='Краткое описание')
