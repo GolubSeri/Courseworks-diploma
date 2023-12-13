@@ -25,19 +25,25 @@ export const postFeedback = async (data, setPostResult, setIsPostLoading) => {
         form_data.append(key, data[key]);
     }
 
-    await axios
-        .post(`${process.env.REACT_APP_HOST_IP}/api/feedback`, data, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-        })
-        .then((response) => {
-            if (response.status === 201) {
-                setPostResult('access');
-            } else {
-                setPostResult('error');
-            }
-            setIsPostLoading(false);
-        });
+    try {
+        await axios
+            .post(`${process.env.REACT_APP_HOST_IP}/api/feedback`, data, {
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+            })
+            .then((response) => {
+                if (response.status === 201) {
+                    setPostResult('access');
+                } else {
+                    setPostResult('error');
+                }
+                setIsPostLoading(false);
+            });
+    } catch {
+        setPostResult('error');
+        setIsPostLoading(false);
+    }
 };
