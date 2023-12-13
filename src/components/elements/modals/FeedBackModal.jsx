@@ -151,7 +151,7 @@ export const FeedBackModal = ({ active, setActive }) => {
                             <Input
                                 style={{ marginBottom: '12px' }}
                                 placeholder="Дата защиты*"
-                                type="text"
+                                type="date"
                                 name="date"
                                 value={date.value}
                                 error_text={date.isDirty ? date.valid : ''}
