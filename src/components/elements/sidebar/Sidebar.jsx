@@ -43,6 +43,7 @@ export const Sidebar = ({ setModalActive }) => {
                     width: drawerWidth,
                     boxSizing: 'border-box',
                     backgroundColor: '#1E293B',
+                    maxHeight: '781px',
                 },
             }}
         >

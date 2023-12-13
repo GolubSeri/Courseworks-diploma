@@ -39,7 +39,7 @@ export const WorkBody = ({ data }) => {
             </div>
             <div className="work__pdf">
                 <span className="work_info__title">Текст работы:</span>
-                {data['pdf'] !== null ? (
+                {'pdf' in data && data['pdf'] !== null && data['pdf'] !== '' ? (
                     <Worker workerUrl="/js/pdf.worker.min.js">
                         <LocalizationContext.Provider value={''}>
                             <Viewer
