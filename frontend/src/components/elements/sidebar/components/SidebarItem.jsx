@@ -29,7 +29,7 @@ export const SidebarItem = ({ item }) => {
             >
                 <img
                     className="sidebar_item__image"
-                    src={`/images/Sidebar/icons/${item['img']}.png`}
+                    src={`/images/sidebar/icons/${item['img']}.png`}
                     alt=""
                 />
                 <ListItemText

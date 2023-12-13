@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#8h^3ql!mx3g=t#5nlvy@sucjk4jcn+6f1$4y0(uql)gx&m!1!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 # Application definition
 
@@ -51,9 +51,12 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://localhost", "http://127.0.0.1", "http://0.0.0.0"
 ]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost", "http://127.0.0.1", "http://0.0.0.0"
+]
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'Courseworks.urls'
 APPEND_SLASH = False

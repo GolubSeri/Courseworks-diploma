@@ -29,7 +29,7 @@ export const SingleWork = () => {
                             justifyContent: 'center',
                         }}
                     >
-                        <CircularProgress style={{}} />
+                        <CircularProgress />
                     </div>
                 )}
             </PageContainer>

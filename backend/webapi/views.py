@@ -40,10 +40,7 @@ class FeedbackView(APIView):
         file_uploaded = request.data.get('file')
         context = {'email': request.POST.get("email"), 'student': request.POST.get("fio"),
                    'topic': request.POST.get("topic"), 'score': request.POST.get("score"),
-                   'teacher': request.POST.get("teacher")}
-        date = datetime.strptime(request.POST.get('date'), "%d.%m.%Y")
-        context['date'] = date.strftime("%Y-%m-%d")
-        context['pdf'] = file_uploaded
+                   'teacher': request.POST.get("teacher"), 'date': request.POST.get('date'), 'pdf': file_uploaded}
 
         work = Feedback.objects.create(**context)
         work.save()
